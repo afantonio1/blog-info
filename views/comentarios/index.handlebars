@@ -1,0 +1,17 @@
+<h4>Lista de comentários</h4>
+<hr>
+
+{{#each comentario}}
+<div class="card mt-2">
+    <div class="card-body">
+        <small>Usuario: {{nome}}</small> <br>
+        <small>Data de publicação: {{#formatDate data}}{{/formatDate}}</small>
+        <hr>
+        <p>Comentário: {{conteudo}}</p>
+         <a href="/comentarios/excluir/{{id}}"><button class="btn btn-secondary" title="Excluir comentário">Excluir</button></a>
+    </div>
+</div>
+
+{{else}}
+    <p>Nenhum comentário encontrado.</p>
+{{/each}}

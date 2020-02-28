@@ -1,0 +1,37 @@
+<div class="mensagemAlerta">
+    {{#each arrayErros}}
+        <div class="alert alert-danger">
+            {{texto}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {{else}}
+
+    {{/each}}
+</div>
+
+<h4>Login</h4>
+<hr/>
+
+<div class="card">
+    <div class="card-body">
+        <form id="frmLogin" action="/usuarios/login" method="post">
+            <div class="form-group">
+                <label for="email"> Email: </label>
+                <input class="form-control" type="email" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="senha"> Senha: </label>
+                <input class="form-control" type="password" name="senha" placeholder="senha">
+            </div>
+        </form>
+         <div class="boxBotoes">
+            <button class="btn btn-info" onclick="document.getElementById('frmLogin').submit();" title="Login">Login</button>
+            <button class="btn btn-danger" onclick="document.location.href='/'" title="Cancelar Login">Cancelar</button></a>
+        </div>
+        <div>
+            <p class="mt-3">Ainda não tem uma conta? <a href="/usuarios/registro">Cadastre-se</a></p>
+        </div>
+    </div>
+</div>

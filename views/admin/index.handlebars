@@ -1,0 +1,161 @@
+<div class="mensagemAlerta">
+    {{#each arrayErros}}
+    <div class="alert alert-danger">
+        {{texto}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {{else}}
+
+
+    {{/each}}
+</div>
+
+<h4>Painel Administrativo</h4>
+<hr />
+<div class="card">
+    <div class="card-body">
+        <ul class="admin">
+            <li>
+                <a href="/admin/categorias">Categorias</a>
+            </li>
+            <li>
+                <a href="/admin/postagens">Postagens</a>
+            </li>
+            <li>
+                <a href="/comentarios">Comentários</a>
+            </li>
+        </ul>
+    </div>
+
+    <hr class="separador">
+    <div>
+        <h5 class="titleTables">Categorias:</h5>
+        <div class="add">
+            <a href="/admin/categorias/add"><img src="/img/add2.png" alt="Adicionar" title="Nova Categoria"></a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nome da Categoria</th>
+                    <th>Slug</th>
+                    <th>Data Cadastro</th>
+                    <th colspan="2">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each categoria}}
+                <tr>
+                    <td>{{nome}}</td>
+                    <td>{{slug}}</td>
+                    <td>{{#formatDate date}}{{/formatDate}}</td>
+                    <td><a href="/admin/categorias/edit/{{id}}"><img src="/img/edit2.png" alt="editar"
+                                title="Editar categoria"></a></td>
+                    <td><a href="/admin/categorias/deletar/{{id}}"><img src="/img/delete.png" alt="excluir"
+                                title="Excluir categoria"></a></td>
+                </tr>
+                {{else}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    {{!-- Tabela para listar as postagens --}}
+    <hr class="separador">
+    <div>
+        <h5 class="titleTables">Postagens:</h5>
+        <div class="add">
+            <a href="/admin/postagens/add"><img src="/img/add2.png" alt="Adicionar" title="Nova Postagem"></a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Postagem</th>
+                    <th>Link</th>
+                    <th>Publicação</th>
+                    <th>Visualizações</th>
+                    <th colspan="2">Açoes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each postagem}}
+                <tr>
+                    <td>{{titulo}}</td>
+                    <td><a href="/postagem/{{slug}}">{{slug}}</a></td>
+                    <td>{{#formatDate data}}{{/formatDate}}</td>
+                    <td>{{visualizacoes}}</td>
+                    <td><a href="/admin/postagens/edit/{{id}}"><img src="/img/edit2.png" alt="editar"
+                                title="Editar categoria"></a></td>
+                    <td><a href="/admin/postagens/deletar/{{id}}"><img src="/img/delete.png" alt="excluir"
+                                title="Excluir categoria"></a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    {{!-- Tabela para listar os administradores do site --}}
+    <hr class="separador">
+    <div>
+        <h5 class="titleTables">Administradores:</h5>
+        <div class="add">
+            <a href="/usuarios/add"><img src="/img/add2.png" alt="Adicionar" title="Novo Administrador"></a>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th colspan="2">Açoes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each usuarioAdmin}}
+                <tr>
+                    <td>{{nome}}</td>
+                    <td>{{email}}</td>
+                    <td><a href="/usuarios/deletar/{{id}}"><img src="/img/delete.png" alt="excluir"
+                                title="Excluir Usuário"></a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    {{!-- Tabela para listar os comentários --}}
+    <hr class="separador">
+    <div>
+        <h5 class="titleTables">Comentários:</h5>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Autor</th>
+                    <th>Data</th>
+                    <th>Comentário</th>
+                    <th colspan="2">Açoes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each comentario}}
+                <tr>
+                    <td>{{nome}}</td>
+                    <td>{{#formatDate data}}{{/formatDate}}</td>
+                    <td>{{conteudo}}</td>
+                    <td><a href="/comentarios/excluir/{{id}}"><img src="/img/delete.png" alt="excluir"
+                                title="Excluir comentário"></a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

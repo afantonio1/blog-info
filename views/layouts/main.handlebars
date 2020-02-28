@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/img/blog2.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Info - {{titulo}}</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+
+<body>
+    {{> _navbar}}
+    <div class="container mt-5">
+        <div class="main">
+            <div class="mensagemAlerta">
+                {{#if error}}
+                <div class="alert alert-danger">
+                    {{error}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {{else}}
+
+                {{/if}}
+            </div>
+
+            {{> _msg}}
+            {{{body}}}
+        </div>
+    </div>
+    {{> footer}}
+</body>
+
+<!-- Arquivos Jquery-->
+<script src="/js/jquery-3.4.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/script.js"></script>
+
+</html>

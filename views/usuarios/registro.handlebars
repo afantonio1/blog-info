@@ -1,0 +1,43 @@
+<div class="mensagemAlerta">
+    {{#each arrayErros}}
+        <div class="alert alert-danger">
+            {{texto}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {{else}}
+
+    {{/each}}
+</div>
+
+<h4>Criar Conta</h4>
+<hr/>
+
+<div class="card">
+    <div class="card-body">
+        <form id="frmUser" action="/usuarios/registro" method="post">
+
+            <div class="form-group">
+                <label for="nome"> Nome: </label>
+                <input class="form-control" type="text" name="nome" placeholder="Nome">
+            </div>
+            <div class="form-group">
+                <label for="email"> Email: </label>
+                <input class="form-control" type="email" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="senha"> Senha: </label>
+                <input class="form-control" type="password" name="senha" placeholder="senha">
+            </div>
+            <div class="form-group">
+                <label for="ConfirmaSenha"> Confirmação de Senha: </label>
+                <input class="form-control" type="password" name="ConfirmaSenha" placeholder="Confirmação de senha">
+            </div>
+        </form>
+         <div class="boxBotoes">
+            <button class="btn btn-info" onclick="document.getElementById('frmUser').submit();" title="Salvar registro">Salvar</button>
+            <button class="btn btn-danger" onclick="document.location.href='/'" title="Cancelar cadastro">Cancelar</button></a>
+        </div>
+    </div>
+</div>

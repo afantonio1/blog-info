@@ -1,0 +1,48 @@
+<div>
+<div class="jumbotron">
+  <h1 class="display-4"><strong>Bem vindo ao Blog Tech</strong></h1>
+  <p class="lead">Este é um blog simples desenvolvido com Node.js + Express.js + MongoDB.</p>
+  <hr class="my-4">
+  <div>
+  <p>Aqui você poderá ler sobre as novidades do mundo da computação.</p>
+  <p class="lead">
+    <a class="btn btn-secondary" href="/sobre" role="button">Saiba Mais</a>
+  </p>
+  </div>
+  <div class="img-1">
+    <img src="/img/node2.jpg" alt="Logo Node">
+  </div>
+</div>
+</div>
+
+<hr/>
+<h4> Postagens recentes</h4>
+
+{{#each postagens}}
+<div class="card mt-4">
+    <div class="card-body">
+        <h4>{{titulo}}</h4>
+        <hr/>
+        <p class="para-post">{{descricao}}</p>
+        <div class="boxBotoes">
+            <a href="/postagem/{{slug}}"><button class="btn btn-info" title="saiba mais">Leia mais</button></a>
+        </div>
+        <hr />
+        <div>
+            <small>Categoria: {{categoria.nome}}</small>
+        </div>
+        <div>
+            <small>Publicado em: {{#formatDate data}}{{/formatDate}}</small>
+        </div>
+    </div>
+</div>
+{{else}}
+<div class="card mt-2">
+    <div class="card-body">
+        <p>Nenhuma postagem encontrada</p>
+    </div>
+</div>
+
+{{/each}}
+
+<small> * Para visualizar todas as postagens, por favor acesse o menu categorias.</small>

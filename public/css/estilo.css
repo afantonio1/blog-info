@@ -1,0 +1,137 @@
+body{
+    background-color: #ccc;
+}
+
+.main{
+    margin-top: 4em;
+    margin-bottom: 4em;
+    padding-bottom: 1em;
+    background-color: white;
+    padding-left: 1em;
+    padding-right: 1em;
+    box-shadow: 5px 5px rgb(52,58,64);
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+footer {
+    text-align: center;
+    background-color: rgb(52,58,64);
+    color: white;
+    padding-top: 2px;
+ }
+
+.mensagemAlerta{
+    padding-top: 1em;
+}
+
+.boxBotoes{
+   padding-right: 0.5em;
+   padding-top: 0.5em;
+}
+
+::-webkit-input-placeholder {
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  :-ms-input-placeholder {
+    font-size: 12px;
+    font-style: italic;
+  }
+
+.card{
+    border-top: 12px solid  rgba(0, 0, 0, 0.125);
+}
+
+.card-comentarios{
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.para-post{
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  text-align: justify;
+}
+
+#conteudoPost{
+  border: none;
+  overflow: hidden;
+  background-color: white;
+  text-align: justify;
+  resize: none;
+  box-shadow: none;
+  height: 100%;
+}
+
+.jumbotron{
+  background-color: #90C53F;
+  box-shadow: 5px 5px 5px rgb(52,58,64);
+}
+
+.admin{
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.share{
+  padding-left: 0.3em;
+}
+
+.visualizacoes{
+  text-align: right;
+  float: right;
+  padding-right: 0.5em;
+}
+
+.img-1 img{
+	max-width:100%;
+	height:auto;
+}
+
+.img-1{
+  margin-top: -7em;
+  float: right;
+  margin-left: 35%;
+}
+
+hr.separador {
+  border: 5px solid #E1E1E1;
+  border-radius: 0.2em;
+}
+
+.comentarios{
+  padding-top: 2em;
+}
+
+small.termo {
+  padding-top: -3em;
+}
+
+table thead th{
+  text-align: center;
+}
+
+
+h5.titleTables{
+  padding-left: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  display: inline;
+}
+
+.add{
+  float: right;
+  padding-right: 1em;
+  margin-bottom: 1em;
+}

@@ -1,0 +1,57 @@
+<h4>{{postagem.titulo}}</h4>
+<hr>
+
+<div>
+    <small>Data de publicação: {{#formatDate postagem.data}}{{/formatDate}}</small>
+    <a href="" id="whatsapp-btn" rel="nofollow" target="_blank"><img class="share" src="/img/whatsapp.png" alt="whatsapp" title="compartilhar esse artigo no whatsapp"></a>
+    <img class="share" src="/img/twitter.png" alt="twitter" title="compartilhar esse artigo no twitter">
+    <img class="share" src="/img/facebook.png" alt="facebook" title="compartilhar esse artigo no facebook">
+    <img class="share" src="/img/linkedin.png" alt="linkedin" title="compartilhar esse artigo no linkedin">
+    {{!-- <div class="visualizacoes">
+        <small>Visualizações: {{postagem.visualizacoes}}</a></small>
+    </div> --}}
+</div>
+
+<hr>
+
+<div class="card">
+    <div class="card-body">
+        <textarea readonly class="form-control " id="conteudoPost">
+            {{postagem.conteudo}}
+        </textarea>
+
+        <hr class="separador">
+        <h5>Comentários: {{comentarios.length}} </h5>
+        <hr>
+        <small class="termo">Os comentários são de responsabilidade exclusiva de seus autores e não representam a opinião deste site.</small>
+
+        <div class="comentarios">
+            <form id="frmComentario" action="/comentarios/novo" method="post">
+                <input name="id" type="hidden" value="{{postagem.id}}">
+                <textarea name="txtComentario" class="form-control mt-4" placeholder="Escreva seu comentário*" rows="5"></textarea>
+            </form>
+            <button class="btn btn-info mt-2" onclick="document.getElementById('frmComentario').submit();"
+                    title="Enviar comentário">Enviar</button>
+        </div>
+        <hr class="separador">
+
+        <div class="listaComentarios">
+            {{#each comentarios}}
+            <div class="card card-comentarios mt-2" >
+                <div class="card-body">
+                    <h6>{{nome}}</h6>
+                    <small>{{#formatDate data}}{{/formatDate}}</small>
+                    <p>{{conteudo}}</p>
+                </div>
+            </div>
+            {{else}}
+            <div class="card card-comentarios mt-2">
+                <div class="card-body">
+                    <small> Esta postagem ainda não tem comentários, seja o primeiro a comentar!</small>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+    </div>
+</div>

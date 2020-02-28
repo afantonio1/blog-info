@@ -1,0 +1,15 @@
+<h4 class="titulo-pagina">Categorias: </h4>
+<hr>
+
+<div class="card">
+    <div class="card-body">
+        <ul class="admin">
+            {{#each categorias}}
+                <a href="/categorias/{{slug}}">
+                <li>{{nome}}</li> </a>
+            {{else}}
+
+            {{/each}}
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="mensagemAlerta">
+    {{#each arrayErros}}
+        <div class="alert alert-danger">
+            {{texto}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {{else}}
+
+    {{/each}}
+</div>
+
+<h4>Nova Categoria</h4>
+
+<div class="card">
+    <div class="card-body">
+        <form id="frmCat" action="/admin/categorias/nova" method="post">
+
+            <div class="form-group">
+                <label for="nome"> Nome: </label>
+                <input class="form-control" type="text" id="nome" name="nome" placeholder="Nome da categoria">
+            </div>
+            <div class="form-group">
+                <label for="slug"> Slug: </label>
+                <input class="form-control" type="text" id="slug" name="slug" placeholder="Slug da categoria">
+            </div>
+        </form>
+         <div class="boxBotoes">
+            <button class="btn btn-info" onclick="document.getElementById('frmCat').submit();" title="Incluir uma nova categoria">Salvar</button>
+            <button class="btn btn-danger" onclick="document.location.href='/admin/categorias'" title="Cancelar cadastro de categoria">Cancelar</button></a>
+        </div>
+    </div>
+</div>

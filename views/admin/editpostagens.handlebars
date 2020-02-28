@@ -1,0 +1,72 @@
+<div class="mensagemAlerta">
+    {{#each arrayErros}}
+    <div class="alert alert-danger">
+        {{texto}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {{else}}
+
+
+    {{/each}}
+</div>
+
+<h4>Editar Postagem</h4>
+
+<div class="card">
+    <div class="card-body">
+        <form id="frmEditPost" action="/admin/postagem/edit" method="post">
+            <input type="hidden" name="id" id="id" value="{{postagem._id}}">
+            <div class="form-group">
+                <label for="titulo"> Título: </label>
+                <input class="form-control" type="text" id="titulo" name="titulo" placeholder="Título da postagem"
+                    value="{{postagem.titulo}}">
+            </div>
+            <div class="form-group">
+                <label for="slug"> Slug: </label>
+                <input class="form-control" type="text" id="slug" name="slug" placeholder="Slug da postagem"
+                    value="{{postagem.slug}}">
+            </div>
+            <div class="form-group">
+                <label for="descricao"> Descrição: </label>
+                <input class="form-control" type="text" id="descricao" name="descricao" placeholder="Descrição"
+                    value="{{postagem.descricao}}" required="true">
+            </div>
+            <div class="form-group">
+                <label for="categoria"> Categoria: </label>
+                <select class="form-control" name="categoria">
+                    {{#each categorias}}
+                    <option value="{{_id}}">{{nome}}</option>
+                    {{else}}
+                    <option value="0"> Nenhuma postagem registrada</option>
+                    {{/each}}
+                </select>
+            </div>
+            <label for="conteudo">Conteúdo:</label>
+            <textarea class="form-control" name="conteudo" rows="6"
+                placeholder="Digite o conteúdo da sua postagem">{{postagem.conteudo}}</textarea>
+        </form>
+        <div class="boxBotoes">
+            <button class="btn btn-info" onclick="document.getElementById('frmEditPost').submit();"
+                title="Publicar postagem">Atualizar</button>
+            <button class="btn btn-danger" onclick="document.location.href='/admin/postagens'"
+                title="Cancelar publicação">Cancelar</button></a>
+        </div>
+    </div>
+</div>
+
+<script>
+function atualizaSel() {
+    var categoria = document.getElementById("categoria")
+    var option1 = document.getElementsByTagName("option")
+    var id_sel = "{{postagem.categoria._id}}"
+
+    for (var i = 0; i < option1.length; i++) {
+        if (option1[i].value == id_sel) {
+            option1[i].setAttribute("selected", "true")
+        }
+    }
+}
+atualizaSel();
+</script>

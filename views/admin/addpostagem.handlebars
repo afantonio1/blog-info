@@ -1,0 +1,50 @@
+<div class="mensagemAlerta">
+    {{#each arrayErros}}
+        <div class="alert alert-danger">
+            {{texto}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+    {{else}}
+
+
+    {{/each}}
+</div>
+
+<h4>Adicionar Postagem</h4>
+
+<div class="card">
+    <div class="card-body">
+        <form id="frmPostAdd" action="/admin/postagens/nova" method="post">
+            <div class="form-group">
+                <label for="titulo"> Título: </label>
+                <input class="form-control" type="text" id="titulo" name="titulo" placeholder="Título da postagem">
+            </div>
+            <div class="form-group">
+                <label for="slug"> Slug: </label>
+                <input class="form-control" type="text" id="slug" name="slug" placeholder="Slug da postagem">
+            </div>
+            <div class="form-group">
+                <label for="descricao"> Descrição: </label>
+                <input class="form-control" type="text" id="descricao" name="descricao" placeholder="Descrição">
+            </div>
+            <div class="form-group">
+                <label for="categoria"> Categoria: </label>
+                <select class="form-control" name="categoria">
+                    {{#each categorias}}
+                    <option value="{{_id}}">{{nome}}</option>
+                    {{else}}
+                    <option value="0"> Nenhuma categoria registrada</option>
+                    {{/each}}
+                </select>
+            </div>
+            <label for="conteudo">Conteúdo:</label>
+            <textarea class="form-control" name="conteudo" rows="6" placeholder="Digite o conteúdo da sua postagem"></textarea>
+        </form>
+         <div class="boxBotoes">
+            <button class="btn btn-info" onclick="document.getElementById('frmPostAdd').submit();" title="Publicar postagem">Publicar</button>
+            <button class="btn btn-danger" onclick="document.location.href='/admin/postagens'" title="Cancelar publicação}">Cancelar</button></a>
+        </div>
+    </div>
+</div>
